@@ -6,6 +6,8 @@ This app uses AWS API Gateway and Lambda to resize images on the fly.
 
 ![ama](https://user-images.githubusercontent.com/465552/31307598-9a718e80-ab5f-11e7-9ffd-f88766e67824.png)
 
+*Thanks to [@damian_kidd](https://www.instagram.com/damian_kidd/) for the image*
+
 1. The user makes a request to your S3 bucket in the format `https://YOUR_BUCKET/HEIGHTxWIDTH/IMAGE_KEY`. 
 2. If the image exists, it is served immediately. If not the user is redirected to a Lambda function (via an Amazon API Gateway).
 3. The Lambda function grabs the original image from your S3 bucket, resizes it, pushes it to S3 and then returns a redirect which sends the user back to S3 where the newly processed image is stored.
