@@ -2,6 +2,20 @@
 
 This app uses AWS API Gateway and Lambda to resize images on the fly.
 
+## How it works
+
+![ama](https://user-images.githubusercontent.com/465552/31307598-9a718e80-ab5f-11e7-9ffd-f88766e67824.png)
+
+1. The user makes a request to your S3 bucket in the format `https://YOUR_BUCKET/HEIGHTxWIDTH/IMAGE_KEY`. 
+2. If the image exists, it is served immediately. If not the user is redirected to a Lambda function (via an Amazon API Gateway).
+3. The Lambda function grabs the original image from your S3 bucket, resizes it, pushes it to S3 and then returns a redirect which sends the user back to S3 where the newly processed image is stored.
+
+## To do
+
+- Nice handling for images that don't exist in S3
+- Maybe limit the sizes that can be requested
+- More processing options? Quality, grayscale, blur etc
+
 ## Setup
 
 1. [Install Serverless](https://serverless.com/framework/docs/getting-started/)
@@ -54,5 +68,4 @@ Add this to the "Redirection Rules" box in the "Static Web Hosting" options of y
     </Redirect>
   </RoutingRule>
 </RoutingRules>
-
 ```
