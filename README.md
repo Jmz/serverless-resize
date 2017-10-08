@@ -4,9 +4,7 @@ This app uses AWS API Gateway and Lambda to resize images on the fly.
 
 ## How it works
 
-![ama](https://user-images.githubusercontent.com/465552/31307598-9a718e80-ab5f-11e7-9ffd-f88766e67824.png)
-
-*Thanks to [@damian_kidd](https://www.instagram.com/damian_kidd/) for the image*
+![how it works](https://user-images.githubusercontent.com/465552/31307598-9a718e80-ab5f-11e7-9ffd-f88766e67824.png)
 
 1. The user makes a request to your S3 bucket in the format `https://YOUR_BUCKET/HEIGHTxWIDTH/IMAGE_KEY`. 
 2. If the image exists, it is served immediately. If not the user is redirected to a Lambda function (via an Amazon API Gateway).
@@ -71,3 +69,8 @@ Add this to the "Redirection Rules" box in the "Static Web Hosting" options of y
   </RoutingRule>
 </RoutingRules>
 ```
+
+### Credits
+
+- Thanks to [@damian_kidd](https://www.instagram.com/damian_kidd/) for the image
+- Original idea from [awslabs github](https://github.com/awslabs/serverless-image-resizing)
